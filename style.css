@@ -155,3 +155,19 @@ img {
         padding: 15px;
     }
 }
+/* DARK MODE */
+.dark-mode {
+    background: #111 !important;
+    color: white;
+}
+
+.dark-mode .card {
+    background: #1f2937;
+    color: white;
+}
+
+/* ANIMATION */
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+}
