@@ -626,3 +626,16 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
+/* Default (Desktop) */
+.container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
