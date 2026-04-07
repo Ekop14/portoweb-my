@@ -1,147 +1,320 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eko Priyatno - Personal Branding</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ================= SIDEBAR ================= -->
-<div class="sidebar" id="sidebar">
-    
+  <!-- ===== PARTICLES CANVAS ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <!-- FOTO SUDAH FIX -->
-        <img src="ABDUL.jpeg" alt="Profile" class="profile-img">
-        
-        <h2>Eko Priyatno</h2>
-        <p>Frontend Developer</p>
+      <div class="avatar-ring">
+        <img src="https://picsum.photos/seed/avatar-personal/200/200.jpg" alt="Avatar" class="avatar-img">
+      </div>
+      <h2 class="sidebar-name">Arya Pratama</h2>
+      <span class="sidebar-role">Full-Stack Developer</span>
     </div>
 
-    <nav class="nav-menu">
-        <a href="#home-card" class="nav-link active" data-target="home-card">
-            <i class="fas fa-home"></i> Home
-        </a>
-
-        <a href="#info-card" class="nav-link" data-target="info-card">
-            <i class="fas fa-user"></i> Info
-        </a>
-
-        <a href="#kontak-card" class="nav-link" data-target="kontak-card">
-            <i class="fas fa-envelope"></i> Kontak
-        </a>
+    <nav class="sidebar-nav">
+      <button class="nav-btn active" data-page="home">
+        <i data-lucide="home"></i>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-page="profile">
+        <i data-lucide="user"></i>
+        <span>Profile</span>
+      </button>
+      <button class="nav-btn" data-page="kontak">
+        <i data-lucide="mail"></i>
+        <span>Kontak</span>
+      </button>
     </nav>
 
     <div class="sidebar-footer">
-        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="GitHub">
+          <i data-lucide="github"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <i data-lucide="linkedin"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+          <i data-lucide="twitter"></i>
+        </a>
+      </div>
+      <p class="copyright">&copy; 2025 Arya Pratama</p>
     </div>
+  </aside>
 
-</div>
+  <!-- ===== MOBILE HEADER ===== -->
+  <header class="mobile-header" id="mobile-header">
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <span class="mobile-title">Arya Pratama</span>
+  </header>
 
-<!-- ================= TOGGLE BUTTON ================= -->
-<button class="toggle-btn" id="toggleBtn">
-    <i class="fas fa-bars"></i>
-</button>
+  <!-- ===== OVERLAY (mobile) ===== -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-<!-- ================= MAIN ================= -->
-<main class="main-content">
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="main-content">
 
-<div class="dashboard">
-
-<!-- ================= HOME ================= -->
-<div id="home-card" class="card active">
-    <div class="hero-card">
-
-        <h1>Halo, Saya <span class="highlight">Eko Priyatno</span></h1>
-        <p>Saya adalah Frontend Developer yang sedang belajar membangun website profesional dan siap bekerja remote.</p>
+    <!-- ---- HOME PAGE ---- -->
+    <section class="page page-home active" id="page-home">
+      <div class="hero">
+        <div class="hero-badge">Selamat Datang</div>
+        <h1 class="hero-title">
+          Hai, Saya
+          <span class="hero-highlight">Arya Pratama</span>
+        </h1>
+        <p class="hero-desc">
+          Saya adalah seorang developer yang bersemangat membangun
+          pengalaman digital yang bermakna, fungsional, dan memukau secara visual.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="btn-see-profile">
+            <span>Lihat Profil</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+          <button class="btn btn-outline" id="btn-contact-me">
+            <span>Hubungi Saya</span>
+          </button>
+        </div>
 
         <div class="hero-stats">
-            <div class="stat">
-                <h3>10+</h3>
-                <p>Project</p>
+          <div class="stat-item">
+            <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Tahun Pengalaman</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Proyek Selesai</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="30">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Klien Puas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- PROFILE PAGE ---- -->
+    <section class="page page-profile" id="page-profile">
+      <div class="page-header">
+        <h2 class="page-title">Profil Saya</h2>
+        <p class="page-subtitle">Mengenal lebih dekat siapa saya dan apa yang saya lakukan</p>
+      </div>
+
+      <div class="profile-grid">
+        <!-- About Card -->
+        <div class="card card-about">
+          <div class="card-icon-wrap">
+            <i data-lucide="info"></i>
+          </div>
+          <h3>Tentang Saya</h3>
+          <p>
+            Lahir di Jakarta, saya memulai perjalanan di dunia programming sejak kuliah.
+            Saat ini saya fokus pada pengembangan web modern dengan teknologi terkini.
+            Saya percaya bahwa kode yang baik bukan hanya tentang fungsionalitas,
+            tetapi juga tentang kejelasan dan keindahan.
+          </p>
+          <div class="about-details">
+            <div class="detail-row">
+              <span class="detail-label">Lokasi</span>
+              <span class="detail-value">Jakarta, Indonesia</span>
             </div>
-
-            <div class="stat">
-                <h3>1+</h3>
-                <p>Year Learning</p>
+            <div class="detail-row">
+              <span class="detail-label">Pendidikan</span>
+              <span class="detail-value">S1 Teknik Informatika</span>
             </div>
-
-            <div class="stat">
-                <h3>100%</h3>
-                <p>Commitment</p>
+            <div class="detail-row">
+              <span class="detail-label">Bahasa</span>
+              <span class="detail-value">Indonesia, Inggris</span>
             </div>
+          </div>
         </div>
 
-        <div class="hero-buttons">
-            <a href="#kontak-card" class="btn btn-primary scroll-link" data-target="kontak-card">Hubungi Saya</a>
-            <a href="#info-card" class="btn btn-secondary scroll-link" data-target="info-card">Lihat Profil</a>
+        <!-- Skills Card -->
+        <div class="card card-skills">
+          <div class="card-icon-wrap">
+            <i data-lucide="code-2"></i>
+          </div>
+          <h3>Keahlian</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>JavaScript / TypeScript</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>React / Next.js</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Node.js / Express</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Python / Django</span>
+                <span class="skill-pct">78%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>UI/UX Design</span>
+                <span class="skill-pct">75%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>PostgreSQL / MongoDB</span>
+                <span class="skill-pct">82%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+          </div>
         </div>
 
-    </div>
-</div>
+        <!-- Experience Card -->
+        <div class="card card-experience">
+          <div class="card-icon-wrap">
+            <i data-lucide="briefcase"></i>
+          </div>
+          <h3>Pengalaman</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023 — Sekarang</span>
+                <h4>Senior Developer</h4>
+                <p>PT Teknologi Nusantara — Memimpin tim 6 orang dalam pengembangan platform SaaS enterprise.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2021 — 2023</span>
+                <h4>Full-Stack Developer</h4>
+                <p>Startup Digital Kreatif — Membangun 15+ aplikasi web dari konsep hingga produksi.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2020 — 2021</span>
+                <h4>Junior Developer</h4>
+                <p>Web Agency Jakarta — Mengembangkan website klien dengan fokus pada performa dan SEO.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- ================= INFO ================= -->
-<div id="info-card" class="card">
-    <h2><i class="fas fa-user"></i> Tentang Saya</h2>
+    <!-- ---- KONTAK PAGE ---- -->
+    <section class="page page-kontak" id="page-kontak">
+      <div class="page-header">
+        <h2 class="page-title">Hubungi Saya</h2>
+        <p class="page-subtitle">Punya pertanyaan atau ingin berkolaborasi? Kirim pesan kepada saya</p>
+      </div>
 
-    <div class="about-grid">
-
-        <div>
-            <p>Saya sedang fokus belajar menjadi Frontend Developer dan membangun portfolio untuk bekerja secara remote dengan client luar negeri.</p>
-
-            <h4>Skills:</h4>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>React (Learning)</li>
-            </ul>
+      <div class="kontak-grid">
+        <!-- Info Cards -->
+        <div class="kontak-info">
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <h4>Lokasi</h4>
+              <p>Jakarta Selatan, Indonesia</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="phone"></i></div>
+            <div>
+              <h4>Telepon</h4>
+              <p>+62 812 3456 7890</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p>arya.pratama@email.com</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="clock"></i></div>
+            <div>
+              <h4>Jam Kerja</h4>
+              <p>Senin — Jumat, 09.00 — 17.00 WIB</p>
+            </div>
+          </div>
         </div>
 
-        <div>
-            <!-- FOTO FIX -->
-            <img src="ABDUL.jpeg" alt="Profile">
-        </div>
-
-    </div>
-</div>
-
-<!-- ================= KONTAK ================= -->
-<div id="kontak-card" class="card">
-    <h2><i class="fas fa-envelope"></i> Hubungi Saya</h2>
-
-    <div class="contact-grid">
-
-        <div>
-            <p>Email: eko@email.com</p>
-            <p>Phone: +62 xxx xxx xxx</p>
-            <p>Location: Indonesia</p>
-        </div>
-
-        <form class="contact-form">
-            <input type="text" placeholder="Nama" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Pesan..." required></textarea>
-            <button type="submit" class="btn btn-primary">Kirim</button>
+        <!-- Contact Form -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            <span class="form-error" id="error-nama"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+            <span class="form-error" id="error-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="subjek">Subjek</label>
+            <input type="text" id="subjek" name="subjek" placeholder="Topik pesan Anda" required>
+            <span class="form-error" id="error-subjek"></span>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            <span class="form-error" id="error-pesan"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Kirim Pesan</span>
+            <i data-lucide="send"></i>
+          </button>
         </form>
+      </div>
 
-    </div>
-</div>
+      <!-- Toast Notification -->
+      <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-message">Pesan berhasil dikirim!</span>
+      </div>
+    </section>
 
-</div>
-</main>
+  </main>
 
-<!-- JS -->
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
