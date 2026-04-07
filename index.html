@@ -3,152 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Personal Branding</title>
+    <title>Eko Priyatno - Personal Branding</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <img src="ABDUL.jpeg/80x80/4F46E5/FFFFFF?text=JD" alt="Profile" class="profile-img">
-            <h2>John Doe</h2>
-            <p>Creative Designer</p>
-        </div>
-        <nav class="nav-menu">
-            <a href="#home-card" class="nav-link active" data-target="home-card">
-                <i class="fas fa-home"></i> Home
-            </a>
-            <a href="#info-card" class="nav-link" data-target="info-card">
-                <i class="fas fa-user"></i> Info
-            </a>
-            <a href="#kontak-card" class="nav-link" data-target="kontak-card">
-                <i class="fas fa-envelope"></i> Kontak
-            </a>
-        </nav>
-        <div class="sidebar-footer">
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        </div>
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar" id="sidebar">
+    
+    <div class="sidebar-header">
+        <!-- FOTO SUDAH FIX -->
+        <img src="ABDUL.jpeg" alt="Profile" class="profile-img">
+        
+        <h2>Eko Priyatno</h2>
+        <p>Frontend Developer</p>
     </div>
 
-    <!-- Toggle Button -->
-    <button class="toggle-btn" id="toggleBtn">
-        <i class="fas fa-bars"></i>
-    </button>
+    <nav class="nav-menu">
+        <a href="#home-card" class="nav-link active" data-target="home-card">
+            <i class="fas fa-home"></i> Home
+        </a>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="dashboard">
-            <!-- Home Card -->
-            <div id="home-card" class="card active">
-                <div class="hero-card">
-                    <div class="hero-card-content">
-                        <div class="hero-badge">
-                            <span>Welcome</span>
-                        </div>
-                        <h1>Halo, Saya <span class="highlight">John Doe</span></h1>
-                        <p>UI/UX Designer & Front-end Developer dengan pengalaman 5+ tahun menciptakan pengalaman digital yang luar biasa.</p>
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <h3>50+</h3>
-                                <p>Projects</p>
-                            </div>
-                            <div class="stat">
-                                <h3>5+</h3>
-                                <p>Years Exp</p>
-                            </div>
-                            <div class="stat">
-                                <h3>98%</h3>
-                                <p>Client Satisfaction</p>
-                            </div>
-                        </div>
-                        <div class="hero-buttons">
-                            <a href="#kontak-card" class="btn btn-primary scroll-link" data-target="kontak-card">Hubungi Saya</a>
-                            <a href="#info-card" class="btn btn-secondary scroll-link" data-target="info-card">Lihat Profil</a>
-                        </div>
-                    </div>
-                </div>
+        <a href="#info-card" class="nav-link" data-target="info-card">
+            <i class="fas fa-user"></i> Info
+        </a>
+
+        <a href="#kontak-card" class="nav-link" data-target="kontak-card">
+            <i class="fas fa-envelope"></i> Kontak
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+    </div>
+
+</div>
+
+<!-- ================= TOGGLE BUTTON ================= -->
+<button class="toggle-btn" id="toggleBtn">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- ================= MAIN ================= -->
+<main class="main-content">
+
+<div class="dashboard">
+
+<!-- ================= HOME ================= -->
+<div id="home-card" class="card active">
+    <div class="hero-card">
+
+        <h1>Halo, Saya <span class="highlight">Eko Priyatno</span></h1>
+        <p>Saya adalah Frontend Developer yang sedang belajar membangun website profesional dan siap bekerja remote.</p>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>10+</h3>
+                <p>Project</p>
             </div>
 
-            <!-- Info Card -->
-            <div id="info-card" class="card">
-                <div class="card-header">
-                    <h2><i class="fas fa-user"></i> Tentang Saya</h2>
-                </div>
-                <div class="card-body">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h3>Passionate Designer</h3>
-                            <p>Saya adalah desainer kreatif yang fokus pada UI/UX dan front-end development. Selama 5 tahun terakhir, saya telah bekerja dengan berbagai klien dari startup hingga perusahaan enterprise untuk menciptakan produk digital yang user-friendly dan impactful.</p>
-                            <div class="skills">
-                                <h4>Skills</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Figma</span>
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">JavaScript</span>
-                                    <span class="skill-tag">Tailwind CSS</span>
-                                    <span class="skill-tag">HTML5</span>
-                                    <span class="skill-tag">Photoshop</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about-image">
-                            <img src="ABDUL.jpeg/400x400/1F2937/FFFFFF?text=Profile" alt="About Me">
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+                <h3>1+</h3>
+                <p>Year Learning</p>
             </div>
 
-            <!-- Kontak Card -->
-            <div id="kontak-card" class="card">
-                <div class="card-header">
-                    <h2><i class="fas fa-envelope"></i> Hubungi Saya</h2>
-                </div>
-                <div class="card-body">
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p>john.doe@email.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p>+62 812 3456 7890</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="contact-form">
-                            <div class="form-group">
-                                <input type="text" placeholder="Nama Lengkap" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea placeholder="Pesan Anda..." rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Commitment</p>
             </div>
         </div>
-    </main>
 
-    <script src="script.js"></script>
+        <div class="hero-buttons">
+            <a href="#kontak-card" class="btn btn-primary scroll-link" data-target="kontak-card">Hubungi Saya</a>
+            <a href="#info-card" class="btn btn-secondary scroll-link" data-target="info-card">Lihat Profil</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= INFO ================= -->
+<div id="info-card" class="card">
+    <h2><i class="fas fa-user"></i> Tentang Saya</h2>
+
+    <div class="about-grid">
+
+        <div>
+            <p>Saya sedang fokus belajar menjadi Frontend Developer dan membangun portfolio untuk bekerja secara remote dengan client luar negeri.</p>
+
+            <h4>Skills:</h4>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React (Learning)</li>
+            </ul>
+        </div>
+
+        <div>
+            <!-- FOTO FIX -->
+            <img src="ABDUL.jpeg" alt="Profile">
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= KONTAK ================= -->
+<div id="kontak-card" class="card">
+    <h2><i class="fas fa-envelope"></i> Hubungi Saya</h2>
+
+    <div class="contact-grid">
+
+        <div>
+            <p>Email: eko@email.com</p>
+            <p>Phone: +62 xxx xxx xxx</p>
+            <p>Location: Indonesia</p>
+        </div>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Nama" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Pesan..." required></textarea>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+
+    </div>
+</div>
+
+</div>
+</main>
+
+<!-- JS -->
+<script src="script.js"></script>
+
 </body>
 </html>
