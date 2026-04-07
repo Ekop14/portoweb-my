@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("JS CONNECTED ✅");
+    console.log("🚀 PRO JS LOADED");
 
     // =====================
     // DOM ELEMENTS
@@ -10,121 +10,123 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.querySelector('.main-content');
     const navLinks = document.querySelectorAll('.nav-link');
     const cards = document.querySelectorAll('.card');
-    const scrollLinks = document.querySelectorAll('.scroll-link');
-    const contactForm = document.querySelector('.contact-form');
+    const darkToggle = document.getElementById('darkModeToggle');
 
     // =====================
-    // TOGGLE SIDEBAR
+    // 🎨 GRADIENT BACKGROUND
     // =====================
-    if (toggleBtn && sidebar && mainContent) {
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            mainContent.classList.toggle('expanded');
+    const gradients = [
+        "linear-gradient(135deg, #667eea, #764ba2)",
+        "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+        "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+        "linear-gradient(135deg, #fbc2eb, #a6c1ee)",
+        "linear-gradient(135deg, #84fab0, #8fd3f4)"
+    ];
 
-            const icon = toggleBtn.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
+    let i = 0;
+    setInterval(() => {
+        document.body.style.background = gradients[i];
+        document.body.style.transition = "1s";
+        i = (i + 1) % gradients.length;
+    }, 5000);
+
+    // =====================
+    // 🌙 DARK MODE
+    // =====================
+    if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
         });
     }
 
     // =====================
-    // SHOW CARD FUNCTION
+    // 📱 SIDEBAR TOGGLE
+    // =====================
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('expanded');
+        });
+    }
+
+    // =====================
+    // ✨ SHOW CARD + ANIMATION
     // =====================
     function showCard(cardId) {
         cards.forEach(card => {
             card.classList.remove('active');
+            card.style.opacity = 0;
         });
 
-        const targetCard = document.getElementById(cardId);
+        const target = document.getElementById(cardId);
 
-        if (targetCard) {
-            targetCard.classList.add('active');
+        if (target) {
+            target.classList.add('active');
 
-            targetCard.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            setTimeout(() => {
+                target.style.opacity = 1;
+                target.style.transition = "0.5s";
+            }, 100);
         }
     }
 
     // =====================
-    // NAVIGATION MENU
+    // 🔗 NAVIGATION
     // =====================
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // Active menu
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // Show content
             const targetId = link.dataset.target;
             showCard(targetId);
 
-            // Close sidebar (mobile)
-            if (window.innerWidth <= 1024) {
+            // Close mobile sidebar
+            if (window.innerWidth <= 768) {
                 sidebar.classList.remove('active');
-                mainContent.classList.remove('expanded');
             }
         });
     });
 
     // =====================
-    // SCROLL LINKS
+    // 📦 SCROLL EFFECT
     // =====================
-    scrollLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+    window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.card');
 
-            const targetId = link.dataset.target;
-
-            navLinks.forEach(l => l.classList.remove('active'));
-
-            const targetNav = document.querySelector(`[data-target="${targetId}"]`);
-            if (targetNav) targetNav.classList.add('active');
-
-            showCard(targetId);
+        cards.forEach(card => {
+            const top = card.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                card.style.transform = "translateY(0)";
+                card.style.opacity = 1;
+                card.style.transition = "0.6s";
+            }
         });
     });
 
     // =====================
-    // CONTACT FORM
+    // 🎯 TYPING EFFECT
     // =====================
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    const typingElement = document.querySelector('.typing');
+    if (typingElement) {
+        const text = "Welcome to My Portfolio 🚀";
+        let index = 0;
 
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
+        function type() {
+            if (index < text.length) {
+                typingElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50);
+            }
+        }
 
-            btn.textContent = 'Mengirim...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('Terima kasih! Pesan Anda sudah terkirim.');
-                contactForm.reset();
-
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }, 2000);
-        });
+        type();
     }
 
     // =====================
-    // WINDOW RESIZE
-    // =====================
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) {
-            sidebar.classList.remove('active');
-            mainContent.classList.remove('expanded');
-        }
-    });
-
-    // =====================
-    // INITIAL LOAD
+    // INIT
     // =====================
     showCard('home-card');
 
