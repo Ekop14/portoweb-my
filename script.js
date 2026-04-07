@@ -1,109 +1,131 @@
-// DOM Elements
-const sidebar = document.getElementById('sidebar');
-const toggleBtn = document.getElementById('toggleBtn');
-const mainContent = document.querySelector('.main-content');
-const navLinks = document.querySelectorAll('.nav-link');
-const cards = document.querySelectorAll('.card');
-const scrollLinks = document.querySelectorAll('.scroll-link');
+document.addEventListener('DOMContentLoaded', () => {
 
-// Toggle Sidebar
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    mainContent.classList.toggle('expanded');
-    
-    // Change toggle button icon
-    const icon = toggleBtn.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-});
+    console.log("JS CONNECTED ✅");
 
-// Navbar Navigation
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Update active nav link
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        
-        // Show target card
-        const targetId = link.dataset.target;
-        showCard(targetId);
-        
-        // Close sidebar on mobile
-        if (window.innerWidth <= 1024) {
-            sidebar.classList.remove('active');
-            mainContent.classList.remove('expanded');
-            toggleBtn.querySelector('i').classList.add('fa-bars');
-            toggleBtn.querySelector('i').classList.remove('fa-times');
-        }
-    });
-});
+    // =====================
+    // DOM ELEMENTS
+    // =====================
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const mainContent = document.querySelector('.main-content');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const cards = document.querySelectorAll('.card');
+    const scrollLinks = document.querySelectorAll('.scroll-link');
+    const contactForm = document.querySelector('.contact-form');
 
-// Show specific card
-function showCard(cardId) {
-    cards.forEach(card => {
-        card.classList.remove('active');
-    });
-    
-    const targetCard = document.getElementById(cardId);
-    if (targetCard) {
-        targetCard.classList.add('active');
-        
-        // Scroll to top smoothly
-        targetCard.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
+    // =====================
+    // TOGGLE SIDEBAR
+    // =====================
+    if (toggleBtn && sidebar && mainContent) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('expanded');
+
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
         });
     }
-}
 
-// Scroll link navigation
-scrollLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.dataset.target;
-        
-        // Update nav link
-        navLinks.forEach(l => l.classList.remove('active'));
-        document.querySelector(`[data-target="${targetId}"]`).classList.add('active');
-        
-        // Show card
-        showCard(targetId);
-    });
-});
+    // =====================
+    // SHOW CARD FUNCTION
+    // =====================
+    function showCard(cardId) {
+        cards.forEach(card => {
+            card.classList.remove('active');
+        });
 
-// Contact Form
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simulate form submission
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = 'Mengirim...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            alert('Terima kasih! Pesan Anda telah terkirim. Saya akan balas secepatnya.');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
+        const targetCard = document.getElementById(cardId);
 
-// Window resize handler
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
-        sidebar.classList.remove('active');
-        mainContent.classList.remove('expanded');
+        if (targetCard) {
+            targetCard.classList.add('active');
+
+            targetCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
-});
 
-// Initialize - show home card
-document.addEventListener('DOMContentLoaded', () => {
+    // =====================
+    // NAVIGATION MENU
+    // =====================
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Active menu
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            // Show content
+            const targetId = link.dataset.target;
+            showCard(targetId);
+
+            // Close sidebar (mobile)
+            if (window.innerWidth <= 1024) {
+                sidebar.classList.remove('active');
+                mainContent.classList.remove('expanded');
+            }
+        });
+    });
+
+    // =====================
+    // SCROLL LINKS
+    // =====================
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const targetId = link.dataset.target;
+
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            const targetNav = document.querySelector(`[data-target="${targetId}"]`);
+            if (targetNav) targetNav.classList.add('active');
+
+            showCard(targetId);
+        });
+    });
+
+    // =====================
+    // CONTACT FORM
+    // =====================
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Terima kasih! Pesan Anda sudah terkirim.');
+                contactForm.reset();
+
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 2000);
+        });
+    }
+
+    // =====================
+    // WINDOW RESIZE
+    // =====================
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            sidebar.classList.remove('active');
+            mainContent.classList.remove('expanded');
+        }
+    });
+
+    // =====================
+    // INITIAL LOAD
+    // =====================
     showCard('home-card');
+
 });
