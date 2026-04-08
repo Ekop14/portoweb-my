@@ -8,9 +8,9 @@
   --border: rgba(0,0,0,0.08);
   --fg: #0f172a;
   --fg-muted: #64748b;
-  --accent: #e8a824;
-  --accent-glow: rgba(232, 168, 36, 0.25);
-  --accent-dim: #c4891a;
+  --accent: #2563eb;
+  --accent-dim: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.2);
   --danger: #ef4444;
   --success: #22c55e;
   --font-display: 'Playfair Display', Georgia, serif;
