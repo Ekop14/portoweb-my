@@ -2,10 +2,12 @@
    CSS VARIABLES & RESET
    =========================== */
 :root {
-  --bg: #f5f7fb;
-  --bg-elevated: #f1f5f9;
-  --fg: #111827;
-  --fg-muted: #6b7280;
+   --bg: #f8fafc;
+  --bg-elevated: #ffffff;
+  --card-bg: rgba(255,255,255,0.8);
+  --border: rgba(0,0,0,0.08);
+  --fg: #0f172a;
+  --fg-muted: #64748b;
   --accent: #e8a824;
   --accent-glow: rgba(232, 168, 36, 0.25);
   --accent-dim: #c4891a;
