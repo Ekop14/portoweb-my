@@ -226,22 +226,24 @@ img {
 }
 
 .social-link {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   border: 1px solid var(--border);
-  color: var(--fg-muted);
+  color: #64748b; /* lebih soft dari muted lama */
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-glow);
-  transform: translateY(-2px);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .social-link svg {
