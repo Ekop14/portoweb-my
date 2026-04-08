@@ -2,22 +2,38 @@
    CSS VARIABLES & RESET
    =========================== */
 :root {
-   --bg: #f8fafc;
+  /* Background */
+  --bg: #f8fafc;
   --bg-elevated: #ffffff;
-  --card-bg: rgba(255,255,255,0.8);
-  --border: rgba(0,0,0,0.08);
+  --sidebar-bg: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.75);
+
+  /* Border & Shadow */
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  /* Text */
   --fg: #0f172a;
   --fg-muted: #64748b;
+
+  /* Accent (Premium Blue) */
   --accent: #2563eb;
   --accent-dim: #1d4ed8;
-  --accent-glow: rgba(37, 99, 235, 0.2);
+  --accent-glow: rgba(37, 99, 235, 0.18);
+
+  /* Status */
   --danger: #ef4444;
   --success: #22c55e;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Font */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Layout */
   --sidebar-width: 280px;
-  --radius: 14px;
-  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-sm: 10px;
 }
 
 *,
@@ -527,14 +543,15 @@ img {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 32px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(232, 168, 36, 0.15);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 99, 235, 0.15);
 }
 
 .card-icon-wrap {
